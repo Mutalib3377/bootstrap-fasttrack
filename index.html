@@ -381,6 +381,68 @@
 </nav>
 
 
+<div class="container mt-5">
+  <h2>Basic Form</h2>
+  <form>
+    <div class="mb-3">
+      <label for="email" class="form-label">Email address</label>
+      <input type="email" class="form-control" id="email" placeholder="name@example.com">
+    </div>
+    <div class="mb-3">
+      <label for="password" class="form-label">Password</label>
+      <input type="password" class="form-control" id="password" placeholder="Enter password">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
+
+
+<form class="needs-validation" novalidate>
+  <div class="mb-3">
+    <label for="username" class="form-label">Username</label>
+    <input type="text" class="form-control" id="username" required>
+    <div class="invalid-feedback">
+      Please enter a username.
+    </div>
+  </div>
+  <button class="btn btn-success" type="submit">Submit</button>
+</form>
+
+<script>
+  // Bootstrap form validation script
+  (() => {
+    'use strict'
+    const forms = document.querySelectorAll('.needs-validation')
+    Array.from(forms).forEach(form => {
+      form.addEventListener('submit', event => {
+        if (!form.checkValidity()) {
+          event.preventDefault()
+          event.stopPropagation()
+        }
+        form.classList.add('was-validated')
+      }, false)
+    })
+  })()
+</script>
+
+<div class="input-group mb-3">
+  <span class="input-group-text">@</span>
+  <input type="text" class="form-control" placeholder="Username">
+</div>
+
+<div class="input-group mb-3">
+  <input type="text" class="form-control" placeholder="Recipient's username">
+  <span class="input-group-text">@example.com</span>
+</div>
+
+<div class="input-group mb-3">
+  <span class="input-group-text">$</span>
+  <input type="number" class="form-control" placeholder="Amount">
+  <span class="input-group-text">.00</span>
+</div>
+
+
+
   <!-- FOOTER -->
   <footer class="py-4 bg-dark text-white">
     <div class="container text-center">© <span id="year"></span> FastTrack Bootstrap</div>
